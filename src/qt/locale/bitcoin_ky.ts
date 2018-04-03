@@ -38,8 +38,8 @@
         <translation>Билдирүүнү &amp;текшерүү...</translation>
     </message>
     <message>
-        <source>Litecoin</source>
-        <translation>Litecoin</translation>
+        <source>Titancoin</source>
+        <translation>Titancoin</translation>
     </message>
     <message>
         <source>Wallet</source>
