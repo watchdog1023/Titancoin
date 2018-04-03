@@ -1,9 +1,7 @@
 Titancoin Core integration/staging tree
 =====================================
 
-[![Build Status](https://travis-ci.org/titancoin-project/titancoin.svg?branch=master)](https://travis-ci.org/titancoin-project/titancoin)
-
-https://titancoin.org
+https://sourceforge.net/projects/titancoin/
 
 What is Titancoin?
 ----------------
@@ -15,7 +13,7 @@ out collectively by the network. Titancoin Core is the name of open source
 software which enables the use of this currency.
 
 For more information, as well as an immediately useable, binary version of
-the Titancoin Core software, see [https://titancoin.org](https://titancoin.org).
+the Titancoin Core software, see [https://sourceforge.net/projects/titancoin/](https://sourceforge.net/projects/titancoin/).
 
 License
 -------
