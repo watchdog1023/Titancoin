@@ -113,7 +113,7 @@ NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = x86_64-pc-linux-gnu
-host_triplet = i686-w64-mingw32
+host_triplet = x86_64-pc-linux-gnu
 bin_PROGRAMS = $(am__EXEEXT_1) $(am__EXEEXT_2) $(am__EXEEXT_3) \
 	$(am__EXEEXT_4) $(am__EXEEXT_5) $(am__EXEEXT_6)
 noinst_PROGRAMS = $(am__EXEEXT_7)
@@ -122,9 +122,9 @@ am__append_1 = titancoind
 am__append_2 = titancoin-cli titancoin-tx
 #am__append_3 = crypto/sha256_sse4.cpp
 #am__append_4 = compat/glibc_compat.cpp
-am__append_5 = bitcoind-res.rc
-am__append_6 = bitcoin-cli-res.rc
-am__append_7 = bitcoin-tx-res.rc
+#am__append_5 = bitcoind-res.rc
+#am__append_6 = bitcoin-cli-res.rc
+#am__append_7 = bitcoin-tx-res.rc
 #am__append_8 = compat/glibc_compat.cpp
 am__append_9 = $(LIBLEVELDB_INT) \
 	$(LIBMEMENV_INT) \
@@ -133,13 +133,13 @@ am__append_10 = $(LIBLEVELDB_INT)
 am__append_11 = $(LIBMEMENV_INT)
 am__append_12 = -I$(srcdir)/leveldb/include \
 	-I$(srcdir)/leveldb/helpers/memenv
-am__append_13 = -DLEVELDB_PLATFORM_WINDOWS -DWINVER=0x0500 -D__USE_MINGW_ANSI_STDIO=1
-#am__append_14 = -DLEVELDB_PLATFORM_POSIX
-am__append_15 = leveldb/util/env_win.cc \
-	leveldb/port/port_win.cc
-#am__append_16 = leveldb/port/port_posix.cc
-#am__append_17 = -DLEVELDB_PLATFORM_POSIX_SSE
-#am__append_18 = $(SSE42_CXXFLAGS)
+#am__append_13 = -DLEVELDB_PLATFORM_WINDOWS -DWINVER=0x0500 -D__USE_MINGW_ANSI_STDIO=1
+am__append_14 = -DLEVELDB_PLATFORM_POSIX
+#am__append_15 = leveldb/util/env_win.cc \
+#	leveldb/port/port_win.cc
+am__append_16 = leveldb/port/port_posix.cc
+am__append_17 = -DLEVELDB_PLATFORM_POSIX_SSE
+am__append_18 = $(SSE42_CXXFLAGS)
 am__append_19 = test/test_titancoin
 am__append_20 = test/test_titancoin
 am__append_21 = test/test_titancoin_fuzzy
@@ -160,10 +160,10 @@ am__append_29 = $(LIBBITCOIN_WALLET) $(LIBBITCOIN_CRYPTO)
 am__append_30 = $(CLEAN_BITCOIN_BENCH)
 am__append_31 = qt/titancoin-qt
 am__append_32 = qt/libbitcoinqt.a
-am__append_33 = $(BITCOIN_QT_WINDOWS_CPP)
+#am__append_33 = $(BITCOIN_QT_WINDOWS_CPP)
 am__append_34 = $(BITCOIN_QT_WALLET_CPP)
 #am__append_35 = $(BITCOIN_MM)
-am__append_36 = $(BITCOIN_RC)
+#am__append_36 = $(BITCOIN_RC)
 am__append_37 = $(LIBBITCOIN_WALLET)
 am__append_38 = $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
 am__append_39 = $(CLEAN_QT)
@@ -300,9 +300,9 @@ am__leveldb_libleveldb_a_SOURCES_DIST = leveldb/port/atomic_pointer.h \
 	leveldb/util/options.cc leveldb/util/status.cc \
 	leveldb/util/env_win.cc leveldb/port/port_win.cc \
 	leveldb/port/port_posix.cc
-am__objects_2 = leveldb/util/leveldb_libleveldb_a-env_win.$(OBJEXT) \
-	leveldb/port/leveldb_libleveldb_a-port_win.$(OBJEXT)
-#am__objects_3 = leveldb/port/leveldb_libleveldb_a-port_posix.$(OBJEXT)
+#am__objects_2 = leveldb/util/leveldb_libleveldb_a-env_win.$(OBJEXT) \
+#	leveldb/port/leveldb_libleveldb_a-port_win.$(OBJEXT)
+am__objects_3 = leveldb/port/leveldb_libleveldb_a-port_posix.$(OBJEXT)
 am_leveldb_libleveldb_a_OBJECTS = leveldb/db/leveldb_libleveldb_a-builder.$(OBJEXT) \
 	leveldb/db/leveldb_libleveldb_a-c.$(OBJEXT) \
 	leveldb/db/leveldb_libleveldb_a-dbformat.$(OBJEXT) \
@@ -672,7 +672,7 @@ am__objects_6 =  \
 	qt/qt_libbitcoinqt_a-trafficgraphwidget.$(OBJEXT) \
 	qt/qt_libbitcoinqt_a-utilitydialog.$(OBJEXT)
 am__objects_7 = qt/qt_libbitcoinqt_a-winshutdownmonitor.$(OBJEXT)
-am__objects_8 = $(am__objects_7)
+#am__objects_8 = $(am__objects_7)
 am__objects_9 = qt/qt_libbitcoinqt_a-addressbookpage.$(OBJEXT) \
 	qt/qt_libbitcoinqt_a-addresstablemodel.$(OBJEXT) \
 	qt/qt_libbitcoinqt_a-askpassphrasedialog.$(OBJEXT) \
@@ -984,8 +984,8 @@ am__objects_26 = qt/qt_titancoin_qt-macdockiconhandler.$(OBJEXT) \
 #am__objects_27 =  \
 #	$(am__objects_26)
 am__objects_28 = qt/res/bitcoin-qt-res.$(OBJEXT)
-am__objects_29 =  \
-	$(am__objects_28)
+#am__objects_29 =  \
+#	$(am__objects_28)
 am_qt_titancoin_qt_OBJECTS =  \
 	qt/qt_titancoin_qt-bitcoin.$(OBJEXT) \
 	$(am__objects_27) $(am__objects_29)
@@ -1153,7 +1153,7 @@ test_test_titancoin_fuzzy_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX \
 	$(test_test_titancoin_fuzzy_CXXFLAGS) $(CXXFLAGS) \
 	$(test_test_titancoin_fuzzy_LDFLAGS) $(LDFLAGS) -o $@
 am__titancoin_cli_SOURCES_DIST = bitcoin-cli.cpp bitcoin-cli-res.rc
-am__objects_32 = bitcoin-cli-res.$(OBJEXT)
+#am__objects_32 = bitcoin-cli-res.$(OBJEXT)
 am_titancoin_cli_OBJECTS = titancoin_cli-bitcoin-cli.$(OBJEXT) \
 	$(am__objects_32)
 titancoin_cli_OBJECTS = $(am_titancoin_cli_OBJECTS)
@@ -1166,7 +1166,7 @@ titancoin_cli_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX \
 	$(titancoin_cli_CXXFLAGS) $(CXXFLAGS) $(titancoin_cli_LDFLAGS) \
 	$(LDFLAGS) -o $@
 am__titancoin_tx_SOURCES_DIST = bitcoin-tx.cpp bitcoin-tx-res.rc
-am__objects_33 = bitcoin-tx-res.$(OBJEXT)
+#am__objects_33 = bitcoin-tx-res.$(OBJEXT)
 am_titancoin_tx_OBJECTS = titancoin_tx-bitcoin-tx.$(OBJEXT) \
 	$(am__objects_33)
 titancoin_tx_OBJECTS = $(am_titancoin_tx_OBJECTS)
@@ -1178,7 +1178,7 @@ titancoin_tx_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CXXLD) $(titancoin_tx_CXXFLAGS) \
 	$(CXXFLAGS) $(titancoin_tx_LDFLAGS) $(LDFLAGS) -o $@
 am__titancoind_SOURCES_DIST = bitcoind.cpp bitcoind-res.rc
-am__objects_34 = bitcoind-res.$(OBJEXT)
+#am__objects_34 = bitcoind-res.$(OBJEXT)
 am_titancoind_OBJECTS = titancoind-bitcoind.$(OBJEXT) \
 	$(am__objects_34)
 titancoind_OBJECTS = $(am_titancoind_OBJECTS)
@@ -1503,7 +1503,7 @@ am__set_TESTS_bases = \
   bases=`echo $$bases`
 RECHECK_LOGS = $(TEST_LOGS)
 TEST_SUITE_LOG = test-suite.log
-TEST_EXTENSIONS = .exe .test
+TEST_EXTENSIONS =  .test
 LOG_DRIVER = $(SHELL) $(top_srcdir)/build-aux/test-driver
 LOG_COMPILE = $(LOG_COMPILER) $(AM_LOG_FLAGS) $(LOG_FLAGS)
 am__set_b = \
@@ -1517,7 +1517,7 @@ am__set_b = \
       b='$*';; \
   esac
 am__test_logs1 = $(TESTS:=.log)
-am__test_logs2 = $(am__test_logs1:.exe.log=.log)
+am__test_logs2 = $(am__test_logs1:.log=.log)
 TEST_LOGS = $(am__test_logs2:.test.log=.log)
 TEST_LOG_DRIVER = $(SHELL) $(top_srcdir)/build-aux/test-driver
 TEST_LOG_COMPILE = $(TEST_LOG_COMPILER) $(AM_TEST_LOG_FLAGS) \
@@ -1555,14 +1555,14 @@ am__relativize = \
     dir1=`echo "$$dir1" | sed -e "$$sed_rest"`; \
   done; \
   reldir="$$dir2"
-ACLOCAL = ${SHELL} /mnt/coin/titancoin-master/build-aux/missing aclocal-1.15
+ACLOCAL = ${SHELL} /media/sf_code_projects/wallet/Win32/titancoin-master/build-aux/missing aclocal-1.15
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 0
-AR = /usr/bin/i686-w64-mingw32-ar
+AR = /usr/bin/ar
 ARFLAGS = cr
-AUTOCONF = ${SHELL} /mnt/coin/titancoin-master/build-aux/missing autoconf
-AUTOHEADER = ${SHELL} /mnt/coin/titancoin-master/build-aux/missing autoheader
-AUTOMAKE = ${SHELL} /mnt/coin/titancoin-master/build-aux/missing automake-1.15
+AUTOCONF = ${SHELL} /media/sf_code_projects/wallet/Win32/titancoin-master/build-aux/missing autoconf
+AUTOHEADER = ${SHELL} /media/sf_code_projects/wallet/Win32/titancoin-master/build-aux/missing autoheader
+AUTOMAKE = ${SHELL} /media/sf_code_projects/wallet/Win32/titancoin-master/build-aux/missing automake-1.15
 AWK = gawk
 BDB_CFLAGS = 
 BDB_CPPFLAGS = 
@@ -1571,20 +1571,20 @@ BITCOIN_CLI_NAME = titancoin-cli
 BITCOIN_DAEMON_NAME = titancoind
 BITCOIN_GUI_NAME = titancoin-qt
 BITCOIN_TX_NAME = titancoin-tx
-BOOST_CHRONO_LIB = -lboost_chrono-mt-s
-BOOST_CPPFLAGS = -DBOOST_SP_USE_STD_ATOMIC -DBOOST_AC_USE_STD_ATOMIC -mthreads -I/mnt/coin/titancoin-master/depends/i686-w64-mingw32/share/../include
-BOOST_FILESYSTEM_LIB = -lboost_filesystem-mt-s
-BOOST_LDFLAGS = -L/mnt/coin/titancoin-master/depends/i686-w64-mingw32/share/../lib
-BOOST_LIBS = -L/mnt/coin/titancoin-master/depends/i686-w64-mingw32/share/../lib -lboost_system-mt-s -lboost_filesystem-mt-s -lboost_program_options-mt-s -lboost_thread_win32-mt-s -lboost_chrono-mt-s
-BOOST_PROGRAM_OPTIONS_LIB = -lboost_program_options-mt-s
-BOOST_SYSTEM_LIB = -lboost_system-mt-s
-BOOST_THREAD_LIB = -lboost_thread_win32-mt-s
-BOOST_UNIT_TEST_FRAMEWORK_LIB = -lboost_unit_test_framework-mt-s
+BOOST_CHRONO_LIB = -lboost_chrono
+BOOST_CPPFLAGS = -DBOOST_SP_USE_STD_ATOMIC -DBOOST_AC_USE_STD_ATOMIC -pthread -I/usr/include
+BOOST_FILESYSTEM_LIB = -lboost_filesystem
+BOOST_LDFLAGS = -L/usr/lib/x86_64-linux-gnu
+BOOST_LIBS = -L/usr/lib/x86_64-linux-gnu -lboost_system -lboost_filesystem -lboost_program_options -lboost_thread -lboost_chrono
+BOOST_PROGRAM_OPTIONS_LIB = -lboost_program_options
+BOOST_SYSTEM_LIB = -lboost_system
+BOOST_THREAD_LIB = -lboost_thread
+BOOST_UNIT_TEST_FRAMEWORK_LIB = -lboost_unit_test_framework
 BREW = 
-CC = /mnt/coin/titancoin-master/depends/i686-w64-mingw32/share/../native/bin/ccache i686-w64-mingw32-gcc
-CCACHE = /mnt/coin/titancoin-master/depends/i686-w64-mingw32/share/../native/bin/ccache
+CC = gcc
+CCACHE = 
 CCDEPMODE = depmode=gcc3
-CFLAGS = -pipe -O2 
+CFLAGS = -g -O2
 CLIENT_VERSION_BUILD = 0
 CLIENT_VERSION_IS_RELEASE = true
 CLIENT_VERSION_MAJOR = 0
@@ -1594,19 +1594,19 @@ COPYRIGHT_HOLDERS = The %s developers
 COPYRIGHT_HOLDERS_FINAL = The Titancoin Core developers
 COPYRIGHT_HOLDERS_SUBSTITUTION = Titancoin Core
 COPYRIGHT_YEAR = 2018
-CPP = i686-w64-mingw32-gcc -E
-CPPFILT = /usr/bin/i686-w64-mingw32-c++filt
-CPPFLAGS = -I/mnt/coin/titancoin-master/depends/i686-w64-mingw32/share/../include/  -DHAVE_BUILD_INFO -D__STDC_FORMAT_MACROS -D_MT -DWIN32 -D_WINDOWS -DBOOST_THREAD_USE_LIB -D_FILE_OFFSET_BITS=64
+CPP = gcc -E
+CPPFILT = /usr/bin/c++filt
+CPPFLAGS =  -DHAVE_BUILD_INFO -D__STDC_FORMAT_MACROS
 CRYPTO_CFLAGS = 
 CRYPTO_LIBS = -lcrypto
-CXX = /mnt/coin/titancoin-master/depends/i686-w64-mingw32/share/../native/bin/ccache i686-w64-mingw32-g++ -std=c++11
-CXXCPP = i686-w64-mingw32-g++ -std=c++11 -E
+CXX = g++ -std=c++11
+CXXCPP = g++ -std=c++11 -E
 CXXDEPMODE = depmode=gcc3
-CXXFLAGS = -pipe -O2 
+CXXFLAGS = -g -O2 -Wall -Wextra -Wformat -Wvla -Wformat-security -Wno-unused-parameter
 CYGPATH_W = echo
 DEFS = -DHAVE_CONFIG_H
 DEPDIR = .deps
-DLLTOOL = i686-w64-mingw32-dlltool
+DLLTOOL = false
 DSYMUTIL = 
 DUMPBIN = 
 ECHO_C = 
@@ -1616,19 +1616,19 @@ EGREP = /bin/grep -E
 ERROR_CXXFLAGS = 
 EVENT_CFLAGS = 
 EVENT_LIBS = -levent
-EVENT_PTHREADS_CFLAGS = 
-EVENT_PTHREADS_LIBS = 
-EXEEXT = .exe
+EVENT_PTHREADS_CFLAGS = -pthread
+EVENT_PTHREADS_LIBS = -levent_pthreads -levent
+EXEEXT = 
 EXTENDED_FUNCTIONAL_TESTS = 
 FGREP = /bin/grep -F
-GCOV = /usr/bin/i686-w64-mingw32-gcov
+GCOV = /usr/bin/gcov
 GENHTML = 
 GENISOIMAGE = 
 GIT = /usr/bin/git
 GREP = /bin/grep
 HARDENED_CPPFLAGS =  -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2
 HARDENED_CXXFLAGS =  -Wstack-protector -fstack-protector-all
-HARDENED_LDFLAGS =  -Wl,--dynamicbase -Wl,--nxcompat
+HARDENED_LDFLAGS =  -Wl,-z,relro -Wl,-z,now -pie
 HAVE_CXX11 = 1
 HEXDUMP = /usr/bin/hexdump
 IMAGEMAGICK_CONVERT = 
@@ -1640,38 +1640,38 @@ INSTALL_SCRIPT = ${INSTALL}
 INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
 LCOV = 
 LCOV_OPTS = 
-LD = /usr/bin/i686-w64-mingw32-ld
-LDFLAGS = -L/mnt/coin/titancoin-master/depends/i686-w64-mingw32/share/../lib  -Wl,--large-address-aware
+LD = /usr/bin/ld -m elf_x86_64
+LDFLAGS = 
 LEVELDB_CPPFLAGS =  $(am__append_12)
-LEVELDB_TARGET_FLAGS = -DOS_WINDOWS
+LEVELDB_TARGET_FLAGS = -DOS_LINUX
 LIBLEVELDB =  $(am__append_10)
 LIBMEMENV =  $(am__append_11)
 LIBOBJS = 
-LIBS = -lQt5PlatformSupport -lssp -lcrypt32 -liphlpapi -lshlwapi -lmswsock -lws2_32 -ladvapi32 -lrpcrt4 -luuid -loleaut32 -lole32 -lcomctl32 -lshell32 -lwinmm -lwinspool -lcomdlg32 -lgdi32 -luser32 -lkernel32 -lmingwthrd 
+LIBS = 
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
-LIBTOOL_APP_LDFLAGS =  -all-static
+LIBTOOL_APP_LDFLAGS = 
 LIPO = 
-LN_S = ln -s
-LRELEASE = /mnt/coin/titancoin-master/depends/i686-w64-mingw32/share/../native/bin/lrelease
+LN_S = cp -pR
+LRELEASE = /usr/lib/x86_64-linux-gnu/qt5/bin/lrelease
 LTLIBOBJS = 
 LT_SYS_LIBRARY_PATH = 
-LUPDATE = 
+LUPDATE = /usr/lib/x86_64-linux-gnu/qt5/bin/lupdate
 MAINT = 
-MAKEINFO = ${SHELL} /mnt/coin/titancoin-master/build-aux/missing makeinfo
-MAKENSIS = none
+MAKEINFO = ${SHELL} /media/sf_code_projects/wallet/Win32/titancoin-master/build-aux/missing makeinfo
+MAKENSIS = 
 MANIFEST_TOOL = :
-MINIUPNPC_CPPFLAGS = -DSTATICLIB -DMINIUPNP_STATICLIB
+MINIUPNPC_CPPFLAGS = 
 MINIUPNPC_LIBS = -lminiupnpc
 MKDIR_P = /bin/mkdir -p
-MOC = /mnt/coin/titancoin-master/depends/i686-w64-mingw32/share/../native/bin/moc
+MOC = /usr/lib/x86_64-linux-gnu/qt5/bin/moc
 MOC_DEFS = -DHAVE_CONFIG_H -I$(srcdir)
-NM = i686-w64-mingw32-nm
+NM = /usr/bin/nm -B
 NMEDIT = 
-OBJCOPY = /usr/bin/i686-w64-mingw32-objcopy
-OBJCXX = i686-w64-mingw32-g++ -std=c++11
+OBJCOPY = /usr/bin/objcopy
+OBJCXX = g++ -std=c++11
 OBJCXXDEPMODE = depmode=gcc3
 OBJCXXFLAGS = 
-OBJDUMP = i686-w64-mingw32-objdump
+OBJDUMP = objdump
 OBJEXT = o
 OTOOL = 
 OTOOL64 = 
@@ -1683,47 +1683,47 @@ PACKAGE_TARNAME = titancoin
 PACKAGE_URL = https://titancoin.org/
 PACKAGE_VERSION = 0.15.1
 PATH_SEPARATOR = :
-PIC_FLAGS = 
-PIE_FLAGS = 
-PKG_CONFIG = /usr/bin/pkg-config --static
+PIC_FLAGS = -fPIC
+PIE_FLAGS = -fPIE
+PKG_CONFIG = /usr/bin/pkg-config
 PKG_CONFIG_LIBDIR = 
-PKG_CONFIG_PATH = /mnt/coin/titancoin-master/depends/i686-w64-mingw32/share/../share/pkgconfig:/mnt/coin/titancoin-master/depends/i686-w64-mingw32/share/../lib/pkgconfig
+PKG_CONFIG_PATH = 
 PORT = 
-PROTOBUF_CFLAGS = 
-PROTOBUF_LIBS = -lprotobuf
-PROTOC = /mnt/coin/titancoin-master/depends/i686-w64-mingw32/share/../native/bin/protoc
-PTHREAD_CC = i686-w64-mingw32-gcc
+PROTOBUF_CFLAGS = -pthread
+PROTOBUF_LIBS = -lprotobuf -pthread -lpthread
+PROTOC = /usr/bin/protoc
+PTHREAD_CC = gcc
 PTHREAD_CFLAGS = -pthread
 PTHREAD_LIBS = 
 PYTHON = /usr/bin/python3.5
-PYTHONPATH = /mnt/coin/titancoin-master/depends/i686-w64-mingw32/share/../native/lib/python/dist-packages:
+PYTHONPATH = /mnt/coin/titancoin-master/depends/x86_64-w64-mingw32/share/../native/lib/python/dist-packages:
 QR_CFLAGS = 
 QR_LIBS = -lqrencode
 QT4_CFLAGS = 
 QT4_LIBS = 
-QT5_CFLAGS = 
-QT5_LIBS = 
+QT5_CFLAGS = -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/x86_64-linux-gnu/qt5
+QT5_LIBS = -lQt5Network -lQt5Widgets -lQt5Gui -lQt5Core
 QTPLATFORM_CFLAGS = 
 QTPLATFORM_LIBS = 
 QTPRINT_CFLAGS = 
 QTPRINT_LIBS = 
 QTXCBQPA_CFLAGS = 
 QTXCBQPA_LIBS = 
-QT_DBUS_CFLAGS = 
-QT_DBUS_INCLUDES = 
-QT_DBUS_LIBS = -lQt5DBus -L/mnt/coin/titancoin-master/depends/i686-w64-mingw32/share/../lib
-QT_INCLUDES = -I/mnt/coin/titancoin-master/depends/i686-w64-mingw32/share/../include -I/mnt/coin/titancoin-master/depends/i686-w64-mingw32/share/../include/QtCore -I/mnt/coin/titancoin-master/depends/i686-w64-mingw32/share/../include/QtGui -I/mnt/coin/titancoin-master/depends/i686-w64-mingw32/share/../include/QtWidgets -I/mnt/coin/titancoin-master/depends/i686-w64-mingw32/share/../include/QtNetwork -I/mnt/coin/titancoin-master/depends/i686-w64-mingw32/share/../include/QtTest -I/mnt/coin/titancoin-master/depends/i686-w64-mingw32/share/../include/QtDBus
-QT_LDFLAGS =  -mwindows
-QT_LIBS = -lqwindows -lqminimal -lQt5Widgets -lQt5Network -lQt5Gui     -lQt5Core    -lqtharfbuzzng -lqtpcre -lqtpng -lz  -limm32  -L/mnt/coin/titancoin-master/depends/i686-w64-mingw32/share/../lib -L/mnt/coin/titancoin-master/depends/i686-w64-mingw32/share/../plugins/platforms
-QT_PIE_FLAGS = 
+QT_DBUS_CFLAGS = -I/usr/include/x86_64-linux-gnu/qt5/QtDBus -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/x86_64-linux-gnu/qt5
+QT_DBUS_INCLUDES = -I/usr/include/x86_64-linux-gnu/qt5/QtDBus -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/x86_64-linux-gnu/qt5
+QT_DBUS_LIBS = -lQt5DBus -lQt5Core
+QT_INCLUDES = -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/x86_64-linux-gnu/qt5
+QT_LDFLAGS = 
+QT_LIBS = -lQt5Network -lQt5Widgets -lQt5Gui -lQt5Core
+QT_PIE_FLAGS = -fPIC
 QT_SELECT = qt5
-QT_TEST_CFLAGS = 
-QT_TEST_INCLUDES = 
-QT_TEST_LIBS = -lQt5Test -L/mnt/coin/titancoin-master/depends/i686-w64-mingw32/share/../lib
-QT_TRANSLATION_DIR = /mnt/coin/titancoin-master/depends/i686-w64-mingw32/share/../translations
-RANLIB = /usr/bin/i686-w64-mingw32-ranlib
-RCC = /mnt/coin/titancoin-master/depends/i686-w64-mingw32/share/../native/bin/rcc
-READELF = /usr/bin/i686-w64-mingw32-readelf
+QT_TEST_CFLAGS = -I/usr/include/x86_64-linux-gnu/qt5/QtTest -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/x86_64-linux-gnu/qt5
+QT_TEST_INCLUDES = -I/usr/include/x86_64-linux-gnu/qt5/QtTest -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/x86_64-linux-gnu/qt5
+QT_TEST_LIBS = -lQt5Test -lQt5Core
+QT_TRANSLATION_DIR = 
+RANLIB = /usr/bin/ranlib
+RCC = /usr/lib/x86_64-linux-gnu/qt5/bin/rcc
+READELF = /usr/bin/readelf
 RELDFLAGS = 
 RSVG_CONVERT = 
 SED = /bin/sed
@@ -1732,30 +1732,30 @@ SHELL = /bin/bash
 SSE42_CXXFLAGS = -msse4.2
 SSL_CFLAGS = 
 SSL_LIBS = -lssl
-STRIP = /usr/bin/i686-w64-mingw32-strip
-TESTDEFS = 
+STRIP = /usr/bin/strip
+TESTDEFS =  -DBOOST_TEST_DYN_LINK
 TIFFCP = 
-UIC = /mnt/coin/titancoin-master/depends/i686-w64-mingw32/share/../native/bin/uic
+UIC = /usr/lib/x86_64-linux-gnu/qt5/bin/uic
 UNIVALUE_CFLAGS = -I$(srcdir)/univalue/include
 UNIVALUE_LIBS = univalue/libunivalue.la
 USE_QRCODE = 
 USE_SSE2 = 
 USE_UPNP = 
 VERSION = 0.15.1
-WINDOWS_BITS = 32
-WINDRES = /usr/bin/i686-w64-mingw32-windres
+WINDOWS_BITS = 
+WINDRES = 
 X11XCB_CFLAGS = 
 X11XCB_LIBS = 
 XGETTEXT = /usr/bin/xgettext
-ZMQ_CFLAGS =  -DZMQ_STATIC
+ZMQ_CFLAGS = 
 ZMQ_LIBS = -lzmq
-abs_builddir = /mnt/coin/titancoin-master/src
-abs_srcdir = /mnt/coin/titancoin-master/src
-abs_top_builddir = /mnt/coin/titancoin-master
-abs_top_srcdir = /mnt/coin/titancoin-master
-ac_ct_AR = 
-ac_ct_CC = 
-ac_ct_CXX = 
+abs_builddir = /media/sf_code_projects/wallet/Win32/titancoin-master/src
+abs_srcdir = /media/sf_code_projects/wallet/Win32/titancoin-master/src
+abs_top_builddir = /media/sf_code_projects/wallet/Win32/titancoin-master
+abs_top_srcdir = /media/sf_code_projects/wallet/Win32/titancoin-master
+ac_ct_AR = ar
+ac_ct_CC = gcc
+ac_ct_CXX = g++
 ac_ct_DUMPBIN = 
 ac_ct_OBJCXX = 
 am__include = include
@@ -1776,15 +1776,15 @@ datarootdir = ${prefix}/share
 docdir = ${datarootdir}/doc/${PACKAGE_TARNAME}
 dvidir = ${docdir}
 exec_prefix = ${prefix}
-host = i686-w64-mingw32
-host_alias = i686-w64-mingw32
-host_cpu = i686
-host_os = mingw32
-host_vendor = w64
+host = x86_64-pc-linux-gnu
+host_alias = 
+host_cpu = x86_64
+host_os = linux-gnu
+host_vendor = pc
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /mnt/coin/titancoin-master/build-aux/install-sh
+install_sh = ${SHELL} /media/sf_code_projects/wallet/Win32/titancoin-master/build-aux/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -9578,13 +9578,13 @@ qt/test/test_titancoin-qt.log: qt/test/test_titancoin-qt$(EXEEXT)
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_TEST_LOG_DRIVER_FLAGS) $(TEST_LOG_DRIVER_FLAGS) -- $(TEST_LOG_COMPILE) \
 	"$$tst" $(AM_TESTS_FD_REDIRECT)
-.test$(EXEEXT).log:
-	@p='$<'; \
-	$(am__set_b); \
-	$(am__check_pre) $(TEST_LOG_DRIVER) --test-name "$$f" \
-	--log-file $$b.log --trs-file $$b.trs \
-	$(am__common_driver_flags) $(AM_TEST_LOG_DRIVER_FLAGS) $(TEST_LOG_DRIVER_FLAGS) -- $(TEST_LOG_COMPILE) \
-	"$$tst" $(AM_TESTS_FD_REDIRECT)
+#.test$(EXEEXT).log:
+#	@p='$<'; \
+#	$(am__set_b); \
+#	$(am__check_pre) $(TEST_LOG_DRIVER) --test-name "$$f" \
+#	--log-file $$b.log --trs-file $$b.trs \
+#	$(am__common_driver_flags) $(AM_TEST_LOG_DRIVER_FLAGS) $(TEST_LOG_DRIVER_FLAGS) -- $(TEST_LOG_COMPILE) \
+#	"$$tst" $(AM_TESTS_FD_REDIRECT)
 
 distdir: $(DISTFILES)
 	@srcdirstrip=`echo "$(srcdir)" | sed 's/[].[^$$\\*]/\\\\&/g'`; \
