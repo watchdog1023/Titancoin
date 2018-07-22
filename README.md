@@ -1,10 +1,6 @@
 Titancoin Core integration/staging tree
 =====================================
 
-[![Build Status](https://travis-ci.org/titancoin-project/titancoin.svg?branch=master)](https://travis-ci.org/titancoin-project/titancoin)
-
-https://titancoin.org
-
 What is Titancoin?
 ----------------
 
